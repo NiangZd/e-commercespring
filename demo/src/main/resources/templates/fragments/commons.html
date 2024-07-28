@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common-head">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>E-Commerce dos Crias - Sapato</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="/css/slick.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/slick-theme.css"/>
+
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="/css/nouislider.min.css"/>
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <!-- Custom stylesheet -->
+    <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<!-- FOOTER -->
+<footer id="footer" th:fragment="common-footer">
+    <!-- top footer -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">Sobre Nós</h3>
+                        <p>Desenvolvedores que precisam de nota para passar em Programação Web =).</p>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fa fa-map-marker"></i>Crias C++ Nº13</a></li>
+                            <li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
+                            <li><a href="#"><i class="fa fa-envelope-o"></i>oscriasdoc++@email.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">Categorias</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Ofertas semanais</a></li>
+                            <li><a href="#">Melhores</a></li>
+                            <li><a href="#">Populares</a></li>
+                            <li><a href="#">Top de linha</a></li>
+                            <li><a href="#">Lançamentos</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="clearfix visible-xs"></div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">Navegação</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Socorro</a></li>
+                            <li><a href="#">Quase não termino</a></li>
+                            <li><a href="#">Conseguindo</a></li>
+                            <li><a href="#">Misericórdia</a></li>
+                            <li><a href="#">Finalizei</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">Serviços</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Minha conta</a></li>
+                            <li><a href="#">Ver produtos</a></li>
+                            <li><a href="#">Favoritos</a></li>
+                            <li><a href="#">Meus pedidos</a></li>
+                            <li><a href="#">Ajuda (muita ajuda)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /top footer -->
+
+    <!-- bottom footer -->
+    <div id="bottom-footer" class="section">
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    
+                    <span class="copyright">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </span>
+                </div>
+            </div>
+                <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /bottom footer -->
+</footer>
+<!-- /FOOTER -->
+
+<!-- TOP HEADER -->
+<div id="top-header" th:fragment="common-topheader">
+    <div class="container">
+        <ul class="header-links pull-left">
+            <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+            <li><a href="#"><i class="fa fa-envelope-o"></i> oscriasdoc++@email.com</a></li>
+            <li><a href="#"><i class="fa fa-map-marker"></i> Crias C++ Nº13</a></li>
+        </ul>
+        <ul class="header-links pull-right">
+            <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+            <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+        </ul>
+    </div>
+</div>
+<!--FIM TOP HEADER -->
+
+<!-- BARRA NAV -->
+<nav id="navigation" th:fragment="common-navbar">
+    <!-- container -->
+    <div class="container">
+        <!-- responsive-nav -->
+        <div id="responsive-nav">
+            <!-- NAV -->
+            <ul class="main-nav nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Tênis</a></li>
+                <li><a href="#">Sapatos</a></li>
+                <li><a href="#">Botas</a></li>
+                <li><a href="#">Sapatênis</a></li>
+            </ul>
+            <!-- /NAV -->
+        </div>
+        <!-- /responsive-nav -->
+    </div>
+    <!-- /container -->
+</nav>
+<!-- FIM BARRA NAV -->
+
+<!-- EMAIL -->
+<div id="newsletter" class="section" th:fragment="common-email">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="newsletter">
+                    <p>Mande um <strong>Email</strong> para comprar</p>
+                    <form>
+                        <input class="input" type="email" placeholder="Digite Seu Email">
+                        <button class="newsletter-btn"><i class="fa fa-envelope"></i> Enviar</button>
+                    </form>
+                    <ul class="newsletter-follow">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- FIM EMAIL -->
+
+<!-- OFERTAS -->
+<div id="hot-deal" class="section" th:fragment="common-ofertas">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hot-deal">
+                    <ul class="hot-deal-countdown">
+                        <li>
+                            <div>
+                                <h3>02</h3>
+                                <span>Days</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3>10</h3>
+                                <span>Hours</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3>34</h3>
+                                <span>Mins</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3>60</h3>
+                                <span>Secs</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <h2 style="color: black;" class="text-uppercase">MELHORES OFERTAS DA SEMANA</h2>
+                    <p style="color: black;">TÊNIS DE QUALIDADE COM 50% DE DESCONTO</p>
+                    <a class="primary-btn cta-btn" href="#">Compre Agora</a>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- FIM OFERTAS -->
+</html>

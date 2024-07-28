@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head th:insert="fragments/commons :: common-head">
+	</head>
+	<body>
+		<!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div th:insert="fragments/commons :: common-topheader"></div>
+			<!-- /TOP HEADER -->
+
+			<!-- MAIN HEADER -->
+			<div id="header" th:fragment="common-mainheader">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="#" class="logo">
+									<img src="/img/logo.png" alt="">
+								</a>
+							</div>
+						</div>
+						<!-- /LOGO -->
+			
+						<!-- SEARCH BAR -->
+						<div class="col-md-6">
+							<div class="header-search">
+								<form>
+									<select class="input-select">
+										<option value="0">Categorias</option>
+										<option value="1">Category 01</option>
+										<option value="1">Category 02</option>
+									</select>
+									<input class="input" placeholder="Pesquise">
+									<button class="search-btn">Search</button>
+								</form>
+							</div>
+						</div>
+						<div>
+							<a href="/logout">Logout</a>
+						</div>
+						
+						<!-- /SEARCH BAR -->
+			
+						<!-- ACCOUNT -->
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn">
+								<!-- Cart -->
+								<div class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+										<i class="fa fa-shopping-cart"></i>
+										<span>Seu Carrinho</span>
+										<div class="qty" th:text="${carrinho.size()}">3</div>
+									</a>
+
+									<div class="cart-dropdown">
+										<div class="cart-list" th:each="item : ${carrinho}">
+											<div class="product-widget">
+												<div class="product-img">
+													<img th:src="${item.imageUri}" alt="Imagem do Produto">
+												</div>
+												<div class="product-body">
+													<h3 class="product-name"><a th:href="@{/produto/{id}(id=${item.id})}" th:text="${item.nome}">Nome do Produto</a></h3>
+													<h4 class="product-price"><span class="qty" th:text="'1x'">1x</span>R$ <span th:text="${item.preco}">0.00</span></h4>
+												</div>
+											</div>
+										</div>                            
+										<div class="cart-summary">
+											<small th:text="${carrinho.size()} + ' Item(s) selecionado(s)'">3 Item(s) selected</small>
+										</div>
+										<div class="cart-btns">
+											<a th:href="@{/verCarrinho}">Ver Carrinho</a>
+											<a th:href="@{/finalizarCompra}">Finalizar Compra <i class="fa fa-arrow-circle-right"></i></a>
+										</div>
+									</div>
+								</div>                 
+								<!-- /Cart -->
+								<!-- Menu Toogle -->
+								<div class="menu-toggle">
+									<a href="#">
+										<i class="fa fa-bars"></i>
+										<span>Menu</span>
+									</a>
+								</div>
+								<!-- /Menu Toogle -->
+							</div>
+						</div>
+						<!-- /ACCOUNT -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
+
+		<!-- NAVIGATION -->
+		<nav th:insert="fragments/commons :: common-navbar"></nav>
+		<!-- /NAVIGATION -->
+
+		<div class="container">
+			<div th:if="${mensagem != null}" class="alert alert-info" role="alert">
+				<p th:text="${mensagem}">Mensagem</p>
+			</div>
+		</div>
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- shop -->
+					<div class="col-md-4 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img src="https://static.bancointer.com.br/blog/images/6ab02fe080634b86988029804fbe0daf_1-tenis-para-academia-masculino-nike-compressed.png" alt="">
+							</div>
+							<div class="shop-body">
+								<h3>Tênis<br>Coleções</h3>
+								<a href="#" class="cta-btn">Veja agora <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /shop -->
+
+					<!-- shop -->
+					<div class="col-md-4 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img src="https://images.tcdn.com.br/img/img_prod/701238/tenis_masculino_nike_alpha_trainer_5ref_dm0829_001_8554_1_3f7959061dc3fd43c59c15bf9bca68af.jpg" alt="">
+							</div>
+							<div class="shop-body">
+								<h3>Top de<br>Linha</h3>
+								<a href="#" class="cta-btn">Veja agora <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /shop -->
+
+					<!-- shop -->
+					<div class="col-md-4 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img src="https://cdnv2.moovin.com.br/margilcalcados/imagens/produtos/det/-6464f9fa9d01e.jpeg" alt="">
+							</div>
+							<div class="shop-body">
+								<h3>Todos estão<br>Usando</h3>
+								<a href="#" class="cta-btn">Veja agora <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /shop -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		<!-- SECTION EXIBIÇÃO -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+		
+					<!-- section title -->
+					<div class="col-md-12">
+						<div class="section-title">
+							<h3 class="title">Nossos produtos</h3>
+							<div class="section-nav">
+								<ul class="section-tab-nav tab-nav">
+									<li class="active"><a data-toggle="tab" href="#tab1">Tenis</a></li>
+									<li><a data-toggle="tab" href="#tab2">Sapatos</a></li>
+									<li><a data-toggle="tab" href="#tab3">Botas</a></li>
+									<li><a data-toggle="tab" href="#tab4">Sapatenis</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /section title -->
+		
+					<!-- Products tab & slick -->
+					<div class="col-md-12">
+						<div class="row">
+							<div class="products-tabs">
+								<!-- tab -->
+								<div id="tab1" class="tab-pane active">
+									<div class="products-slick" data-nav="#slick-nav-1">
+										<!-- product -->
+										<div th:each="sapato : ${listaSapatos}" style="margin: 0 10px;">
+											<div class="product">
+												<div class="product-img">
+													<img  th:src="${sapato.imageUri}" alt="Imagem do Produto">
+												</div>
+												<div class="product-body">
+													<p class="product-category" th:text="${sapato.marca}">Marca</p>
+													<h3 class="product-name"><a href="#" th:text="${sapato.nome}"></a></h3>
+													<h4 class="product-price" th:text="'Valor: ' + ${sapato.preco}"></h4>
+													<p class="product-size" th:text="'Tamanho: ' + ${sapato.tamanho}">Tamanho</p>
+													<p class="product-description" th:text="${sapato.descricao}">Descrição</p>
+													<div class="product-btns">
+														<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+														<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+														<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+													</div>
+												</div>
+												<div class="add-to-cart">
+													<a th:href="@{/adicionarCarrinho(id=${sapato.id})}">
+														<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+													</a>
+												</div>
+											</div>
+										</div>
+										<!-- /product -->
+									</div>
+									<div id="slick-nav-1" class="products-slick-nav"></div>
+								</div>
+								<!-- /tab -->
+							</div>
+						</div>
+					</div>
+					<!-- Products tab & slick -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		<!-- HOT DEAL SECTION -->
+		<div th:insert="fragments/commons :: common-ofertas"></div>
+		<!-- /HOT DEAL SECTION -->
+
+		<!-- NEWSLETTER -->
+		<div th:insert="fragments/commons :: common-email"></div>
+		<!-- /NEWSLETTER -->
+		<footer th:insert="fragments/commons :: common-footer"></footer>
+		<!-- jQuery Plugins -->
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/slick.min.js"></script>
+		<script src="/js/nouislider.min.js"></script>
+		<script src="/js/jquery.zoom.min.js"></script>
+		<script src="/js/main.js"></script>
+
+	</body>
+</html>

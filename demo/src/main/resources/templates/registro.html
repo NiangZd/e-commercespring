@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #E4E7ED;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 500px;
+            margin: 50px auto;
+            background: #15161D;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            color: #FFF;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #B9BABC;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #8D99AE;
+            border-radius: 4px;
+            background: #FBFBFC;
+            color: #333;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #D10024;
+            border: none;
+            color: #FBFBFC;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #C1001F;
+        }
+        .link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .link a {
+            color: #D10024;
+            text-decoration: none;
+        }
+        .link a:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: #ff0000;
+            font-size: 0.9em;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registro</h1>
+        <div th:if="${errorMessage}" style="color: red;">
+            <p th:text="${errorMessage}"></p>
+        </div>
+        <form th:action="@{/registrar}" th:object="${usuario}" method="post">
+            <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" th:field="*{username}" />
+                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>
+            </div>
+            <div>
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" th:field="*{senha}" />
+                <p th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">Senha Error</p>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" th:field="*{email}" />
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</p>
+            </div>
+            <div>
+                <label for="isAdmin">Admin</label>
+                <input type="checkbox" id="isAdmin" th:field="*{isAdmin}" />
+            </div>
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+</body>
+</html>

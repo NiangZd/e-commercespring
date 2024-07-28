@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:insert="fragments/commons :: common-head">
+	</head>
+<body>
+        <div th:if="${message}" class="alert alert-success" role="alert">
+            <p th:text="${message}"></p>
+        </div>
+
+    <h1>Lista de Sapatos</h1>
+
+		<table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+			<thead>
+				<tr>
+					<th style="border: 1px solid; padding: 8px; text-align: center;">Id</th>
+					<th style="border: 1px solid; padding: 8px; text-align: center;">Nome</th>
+					<th style="border: 1px solid; padding: 8px; text-align: center;">Preço</th>
+					<th style="border: 1px solid; padding: 8px; text-align: center;">Marca</th>
+					<th style="border: 1px solid; padding: 8px; text-align: center;">Tamanho</th>
+					<th style="border: 1px solid; padding: 8px; text-align: center;">Descrição</th>
+					<th style="border: 1px solid; padding: 8px; text-align: center;">Imagem</th>
+					<th style="border: 1px solid; padding: 8px; text-align: center;">Editar</th>
+					<th style="border: 1px solid; padding: 8px; text-align: center;">Deletar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="sapato : ${listaSapatos}">
+					<td style="border: 1px solid; padding: 8px; text-align: center;" th:text="${sapato.id}"></td>
+					<td style="border: 1px solid; padding: 8px; text-align: center;" th:text="${sapato.nome}"></td>
+					<td style="border: 1px solid; padding: 8px; text-align: center;" th:text="${sapato.preco}"></td>
+					<td style="border: 1px solid; padding: 8px; text-align: center;" th:text="${sapato.marca}"></td>
+					<td style="border: 1px solid; padding: 8px; text-align: center;" th:text="${sapato.tamanho}"></td>
+					<td style="border: 1px solid; padding: 8px; text-align: center;" th:text="${sapato.descricao}"></td>
+					<td style="border: 1px solid; padding: 8px; text-align: center;">
+						<img style="max-width: 100px; max-height: 100px;" th:src="${sapato.imageUri}" alt="Imagem do Sapato"/>
+					</td>
+					<td style="border: 1px solid; padding: 8px; text-align: center;">
+						<a style="text-decoration: none; padding: 8px 12px; margin: 4px; border: none; background-color: #4CAF50; color: white; border-radius: 5px; cursor: pointer;" th:href="@{/editPage/{id}(id=${sapato.id})}">Editar</a>
+					</td>
+					<td style="border: 1px solid; padding: 8px; text-align: center;">
+						<a style="text-decoration: none; padding: 8px 12px; margin: 4px; border: none; background-color: #f44336; color: white; border-radius: 5px; cursor: pointer;" th:href="@{/deletar/{id}(id=${sapato.id})}">Deletar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<form th:action="@{/cadastroPage}" method="get">
+			<button style="text-decoration: none !important;
+			padding: 8px 12px !important;
+			margin: 4px !important;
+			border: none !important;
+			background-color: #4CAF50 !important;
+			color: white !important;
+			border-radius: 5px !important;
+			cursor: pointer !important;" id="buttontest" type="submit">Cadastrar Sapato</button>
+		</form>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Sapato</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="url"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Cadastrar Sapato</h1>
+
+<form th:object="${sapato}" method="post" th:action="@{/salvar}">
+    <input type="hidden" th:field="*{id}" />
+
+    <label for="nome">Nome:</label>
+    <input type="text" th:field="*{nome}" required />
+
+    <label for="preco">Preço:</label>
+    <input type="number" step="0.01" th:field="*{preco}" required />
+
+    <label for="descricao">Descrição:</label>
+    <input type="text" th:field="*{descricao}" maxlength="500" required />
+
+    <label for="tamanho">Tamanho:</label>
+    <input type="number" th:field="*{tamanho}" min="20" max="50" required />
+
+    <label for="marca">Marca:</label>
+    <input type="text" th:field="*{marca}" required />
+
+    <label for="imageUri">URL da Imagem:</label>
+    <input type="url" th:field="*{imageUri}" required />
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+</body>
+</html>
